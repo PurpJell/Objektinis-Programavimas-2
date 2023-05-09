@@ -3,13 +3,30 @@
 
 #include "studentasLib.h"
 
-class studentas
+class zmogus
+{
+protected:
+	string vardas_ = "", pavarde_ = "";
+	double vid_ = 0;
+
+public:
+	// getters
+	inline string vardas() const { return vardas_; }
+	inline string pavarde() const { return pavarde_; }
+
+	// setters
+	void setName(const string& word) { vardas_ = word; }
+	void setSurname(const string& word) { pavarde_ = word; }
+
+	virtual inline double vid() const { return vid_; }
+
+};
+
+class studentas : public zmogus
 {
 private:
-	string vardas_ = "", pavarde_ = "";
 	vector<int> paz_;
 	int egz_;
-	double vid_ = 0;
 	double med_ = 0;
 public:
 
@@ -22,17 +39,13 @@ public:
 	~studentas() {}
 
 	// getters
-	inline string vardas() const { return vardas_; }
-	inline string pavarde() const { return pavarde_; }
-	inline double vid() const { return vid_; }
+	inline double vid() const override { return vid_; }
 	inline double med() const { return med_; }
 	inline int egz() const { return egz_; }
 	inline int paz_at(int i) const { return paz_.at(i); }
 
 
 	// setters
-	void setName(const string& word) { vardas_ = word;}
-	void setSurname(const string& word) { pavarde_ = word; }
 	void pushPaz(const int& paz) { paz_.push_back(paz); }
 	void pushEgz(const int& paz) { egz_ = paz; }
 
