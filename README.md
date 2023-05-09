@@ -94,3 +94,6 @@ O3: 1s, 2s, 1s, 0s, 6s, 337 KB.
 
 Versija 1.2
 Implementuotos "Rule of five" taisyklės "studentas" klasei bei operatorius <<, skirtas išvesti vieno studento duomenis. 
+
+Versija 1.5
+Sukurta abstrakti klasė "zmogus", su virtualiu metodu vid skaičiuoti vidurkiui. "Studentas" klasė  paveldi iš "zmogus" klasės. vardas_, pavarde_, vid_ bei kai kurios getter ir setter funkcijos perkeltos iš klasės "studentas" į klasę "zmogus".
