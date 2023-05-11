@@ -18,7 +18,7 @@ public:
 	void setName(const string& word) { vardas_ = word; }
 	void setSurname(const string& word) { pavarde_ = word; }
 
-	virtual inline double vid() const { return vid_; }
+	virtual inline double vid() const = 0;
 
 };
 
