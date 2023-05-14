@@ -66,15 +66,6 @@ vector:           9s, 12s, 3s, 48s.
 deque:            8s, 19s, 4s, 54s.
 list:             9s, 8s,  5s, 48s.
 
-
-
-NAUDOJIMOSI INSTRUKCIJA:
-
-Sukompiliuoti failus naudojant Makefile. (komandos: main/vector, deque, list, optimised, clean)
-Pasileisti main.exe.
-Tęsti nurodymus iššokusiame lange.
-
-
 Versija 1.1
 Į Makefile įdėtos naujos funkcijos (wipe, reset), skirtos patogesniam testavimui bei funkcijos o2, o2_funk, o3, o3_funk, kad būtų galima palyginti kompiliatoriaus flag'ų įtaką programos veikimui.
 Studentų struktūra perdaryta į klasę.
@@ -97,3 +88,17 @@ Implementuotos "Rule of five" taisyklės "studentas" klasei bei operatorius <<, 
 
 Versija 1.5
 Sukurta abstrakti klasė "zmogus", su virtualiu metodu vid skaičiuoti vidurkiui. "Studentas" klasė  paveldi iš "zmogus" klasės. vardas_, pavarde_, vid_ bei kai kurios getter ir setter funkcijos perkeltos iš klasės "studentas" į klasę "zmogus".
+
+Versija 2.0
+Aprašyta programos dokumentacija naudojant Doxygen, sukurti testavimo atvejai, tikrinantys, ar funkcijos veikia teisingai, naudojant Boost.test (tests.cpp), sukurtas mysetup.exe įdiegimo failas, naudojant Inno setup 
+
+
+
+NAUDOJIMOSI INSTRUKCIJA:
+
+Sukompiliuoti failus naudojant Makefile. (komandos: main/vector, deque, list, optimised, clean)
+Pasileisti main.exe.
+Tęsti nurodymus iššokusiame lange.
+
+DIEGIMO INSTRUKCIJA:
+Atsisiųsti mysetup.exe failą, jį pasileisti ir sekti nurodymus iššokusiame lange.

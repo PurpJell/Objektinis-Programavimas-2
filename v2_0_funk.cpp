@@ -5,6 +5,7 @@ using namespace std;
 
 // STUDENTO FUNKCIJOS
 
+//! studento konstruktorius, paduodant jam eilutę ir pažymių skaičių
 studentas::studentas(string line, int pazCount){
 
 	istringstream iss(line);
@@ -29,6 +30,7 @@ studentas::studentas(string line, int pazCount){
 	setMed();
 }
 
+//! apskaičiuoja studento pažymių vidurkį
 void studentas::setVid() {
 
 	for (int i = 0; i < paz_.size(); i++)
@@ -39,6 +41,7 @@ void studentas::setVid() {
 	vid_ /= paz_.size();
 }
 
+//! apskaičiuoja studento pažymių medianą
 void studentas::setMed() {
 
 	sort(paz_.begin(), paz_.begin() + paz_.size());
@@ -49,6 +52,7 @@ void studentas::setMed() {
 	else med_ = 1.0 * paz_.at(paz_.size() / 2);
 }
 
+//! užpildo studentų vektorių, pasirenkant studentų ir pažymių skaičių 
 void pildyti(vector<studentas>& mas, int& pazCount) {
 
 	cout << "Kiek pazymiu irasyti kiekvienam studentui?" << endl;
@@ -87,6 +91,7 @@ void pildyti(vector<studentas>& mas, int& pazCount) {
 	}
 }
 
+//! sugeneruoja studentų failą pagal pasirinktą kiekį studentų 
 void generuoti(vector<studentas>& mas, int& stCount, int& pazNr)
 {
 	cout << "Irasykite, kiek irasu generuoti 1k (1), 10k (2), 100k (3), 1M (4), 10M (5)" << endl;
@@ -169,6 +174,7 @@ void generuoti(vector<studentas>& mas, int& stCount, int& pazNr)
 	}
 }
 
+//! nuskaito studentus į vektorių iš pasirinkto failo 
 void nuskaityti(vector<studentas> &mas, int& stCount, int& pazCount) {
 
 	string fileToRead;
@@ -216,11 +222,13 @@ void nuskaityti(vector<studentas> &mas, int& stCount, int& pazCount) {
 	cout << endl << "~Nuskaitymo laikas: " << readElapsed.count() << "s." << endl << endl;
 }
 
+//! funkcija, nurodanti, kaip rūšiuoti studentus pagal vardą 
 bool daugiau(string s1, string s2)
 {
 	return s1 > s2;
 }
 
+//! suskirsto studentų vektorių pagal vardą ir gražina skirstymo indeksą, kai vardai nėra šabloniniai (vardas100) 
 int partition(vector<studentas>& mas, int start, int end) // kai vardai nera sabloniniai
 {
 	string pivot = mas.at(start).vardas();
@@ -257,6 +265,7 @@ int partition(vector<studentas>& mas, int start, int end) // kai vardai nera sab
 	return pivotIndex;
 }
 
+//! surūšiuoja studentų vektorių pagal vardą, kai vardai nėra šabloniniai (vardas100) 
 void quicksort(vector<studentas>& mas, int start, int end) // kai vardai nera sabloniniai
 {
 	if (start >= end) return;
@@ -268,6 +277,7 @@ void quicksort(vector<studentas>& mas, int start, int end) // kai vardai nera sa
 	quicksort(mas, p + 1, end);
 }
 
+//! išveda studentų vektorių pasirinktu būdu 
 void print(vector<studentas> &mas, char mode) {
 
 	stringstream stream;
@@ -306,6 +316,7 @@ void print(vector<studentas> &mas, char mode) {
 	}
 }
 
+//! padalina studentų vektorių į kietų studentu vektorių ir prastų studentų vektorių 
 void dalinti(vector<studentas>& mas, vector<studentas>& kieti, vector<studentas>& prasti)
 {
 	auto it = stable_partition(mas.begin(), mas.end(), [](const studentas& s) { return s.vid() >= 5; });
@@ -314,6 +325,7 @@ void dalinti(vector<studentas>& mas, vector<studentas>& kieti, vector<studentas>
 	prasti.assign(it, mas.end());
 }
 
+//! perkelia kietus studentus į kietų studentų vektorių, o prastus palieka pradiniame vektoriuje 
 void dalinti2(vector<studentas>& mas, vector<studentas>& kieti)
 {
 	auto is_kieti = [](const studentas& s) { return s.vid() >= 5; };
@@ -325,6 +337,7 @@ void dalinti2(vector<studentas>& mas, vector<studentas>& kieti)
 	mas.erase(mas.begin(), kieti_end);
 }
 
+//! išveda kietų studentų vektorių 
 void kout(vector<studentas>& kieti, int pazNr)
 {
 	string tempSt = "";
@@ -363,6 +376,7 @@ void kout(vector<studentas>& kieti, int pazNr)
 	}
 }
 
+//! išveda prastų studentų vektorių 
 void pout(vector<studentas>& prasti, int pazNr)
 {
 
@@ -402,6 +416,7 @@ void pout(vector<studentas>& prasti, int pazNr)
 	}
 }
 
+//! copy konstruktorius studentas klasei 
 studentas::studentas(const studentas& kitas) {
 	this->vardas_ = kitas.vardas_;
 	this->pavarde_ = kitas.pavarde_;
@@ -411,6 +426,7 @@ studentas::studentas(const studentas& kitas) {
 	this->med_ = kitas.med_;
 }
 
+//! move konstruktorius studentas klasei 
 studentas::studentas(const studentas&& kitas) {
 	this->vardas_ = kitas.vardas_;
 	this->pavarde_ = kitas.pavarde_;

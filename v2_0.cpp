@@ -3,7 +3,6 @@
 
 int main()
 {
-	
 	// INICIALIZACIJA
 
 	auto progStart = system_clock::now();
